@@ -854,6 +854,8 @@ namespace Avalonia.Controls
 
                 return new TextCharacters(runText.CharacterBufferReference, runText.Length, _defaultProperties);
             }
+
+            public int Length => _text.Length;
         }
 
         private readonly struct InlinesTextSource : ITextSource
@@ -901,6 +903,21 @@ namespace Avalonia.Controls
                 }
 
                 return null;
+            }
+
+            public int Length
+            {
+                get
+                {
+                    var sum = 0;
+                    
+                    foreach (var textRun in _textRuns)
+                    {
+                        sum += textRun.Length;
+                    }
+
+                    return sum;
+                }
             }
         }
     }
