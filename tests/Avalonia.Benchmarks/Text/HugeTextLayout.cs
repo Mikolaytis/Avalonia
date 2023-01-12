@@ -22,7 +22,7 @@ public class HugeTextLayout : IDisposable
 
     public HugeTextLayout()
     {
-        _manySmallStrings = Enumerable.Range(0, 1000).Select(x => RandomString(_rand.Next(2, 15))).ToArray();
+        _manySmallStrings = Enumerable.Range(0, 100).Select(x => RandomString(_rand.Next(2, 15))).ToArray();
         _app = UnitTestApplication.Start(
             TestServices.StyledWindow.With(
                 renderInterface: new NullRenderingPlatform(),
